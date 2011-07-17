@@ -1,0 +1,7 @@
+#!/bin/bash
+
+DATE="$(date)"
+BRANCH="$(git describe --all --contains --abbrev=4 HEAD)"
+USER="$(whoami)"
+
+echo $DATE == $BRANCH == $USER
