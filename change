@@ -1,7 +1,8 @@
 #!/bin/bash
 
 DATE="$(date)"
-BRANCH="$(git describe --all --contains --abbrev=4 HEAD)"
 USER="$(whoami)"
+BRANCH="$(git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')"
+let POSITION="$(cat expat.log | wc -l) + 1"
 
-echo $DATE == $BRANCH == $USER
+echo $POSITION == $DATE == $BRANCH == $USER
